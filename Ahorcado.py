@@ -13,7 +13,8 @@ class HangmanGame:
 
     def choose_random_word(self):
         """Elige una palabra aleatoria de la lista."""
-        self.secret_word = random.choice(self.word_list)
+        indice = random.randint(0,len(self.word_list)-1)
+        self.secret_word = self.word_list[indice]
 
     def display_game_status(self):
         """Muestra el estado actual del juego."""
@@ -97,7 +98,8 @@ class HangmanUtilities:
         words = [
             "inteligencia", "software", "diseño", "agil", "sostenible", "refactorizacion", "arquitectura", "python"
         ]
-        return random.choice(words)
+        indice = random.randint(0,len(words)-1)
+        return words[indice]
 
     @staticmethod
     def get_max_attempts(difficulty_level):

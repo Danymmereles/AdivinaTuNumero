@@ -1,4 +1,4 @@
-import random
+import secrets
 
 class HangmanGame:
     def __init__(self, max_attempts=6):
@@ -13,8 +13,7 @@ class HangmanGame:
 
     def choose_random_word(self):
         """Elige una palabra aleatoria de la lista."""
-        indice = random.randint(0,len(self.word_list)-1)
-        self.secret_word = self.word_list[indice]
+        self.secret_word = secrets.choice(self.word_list)  # Uso de secrets.choice en lugar de random.choice
 
     def display_game_status(self):
         """Muestra el estado actual del juego."""
@@ -98,8 +97,7 @@ class HangmanUtilities:
         words = [
             "inteligencia", "software", "diseño", "agil", "sostenible", "refactorizacion", "arquitectura", "python"
         ]
-        indice = random.randint(0,len(words)-1)
-        return words[indice]
+        return secrets.choice(words)  # Uso de secrets.choice en lugar de random.choice
 
     @staticmethod
     def get_max_attempts(difficulty_level):
